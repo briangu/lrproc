@@ -16,11 +16,12 @@ public class CPU
   final CPUInstruction[] _instructionSet;
 
   Memory _memory;
-
   Coord _pc;
   Stack<Coord> _coordStack;
   List<Coord> _coordRing;
   int _coordPtr;
+
+  Stack<Byte> _byteStack;
 
   private class TraceReport
   {
@@ -42,23 +43,22 @@ public class CPU
   public CPU(CPUInstruction[] instructions, Memory memory)
   {
     _instructionSet = instructions;
-    _memory = memory;
+    reset(memory);
   }
 
-  public void reset()
+  public void reset(Memory memory)
   {
     setHalt(false);
     traceOff();
 
+    _memory = memory;
     _pc = new Coord((byte)0, (byte)0, (byte)0);
     _coordStack = new Stack<Coord>();
     _coordRing = new ArrayList<Coord>();
     _coordPtr = 0;
-  }
+    _byteStack = new Stack<Byte>();
 
-  public void setMemory(Memory memory)
-  {
-    _memory = memory;
+    insertCoord(_pc);
   }
 
   public Memory getMemory()
@@ -181,5 +181,15 @@ public class CPU
   public void shiftRightCoordPtr()
   {
     _coordPtr = (_coordPtr + 1) % _coordRing.size();
+  }
+
+  public void pushByte(byte b)
+  {
+    _byteStack.push(b);
+  }
+
+  public byte popByte()
+  {
+    return _byteStack.empty() ? 0 : _byteStack.pop();
   }
 }
