@@ -54,7 +54,13 @@ public class Ring<T>
     return _ptr;
   }
 
-  public void shiftLeft()
+  public int rot(int b)
+  {
+    _ptr = (_ptr + b ) % _ring.size();
+    return _ptr;
+  }
+
+  public int shiftLeft()
   {
     if (_ptr == 0)
     {
@@ -64,10 +70,12 @@ public class Ring<T>
     {
       _ptr--;
     }
+    return _ptr;
   }
 
-  public void shiftRight()
+  public int shiftRight()
   {
     _ptr = (_ptr + 1) % _ring.size();
+    return _ptr;
   }
 }
