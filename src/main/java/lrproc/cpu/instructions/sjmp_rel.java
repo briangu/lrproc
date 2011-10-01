@@ -1,24 +1,21 @@
 package lrproc.cpu.instructions;
 
 
+import lrproc.cpu.CPU;
 import lrproc.cpu.CPUInstruction;
+import lrproc.cpu.Coord;
 
 
-public class sjmp_rel
+class sjmp_rel implements CPUInstruction
 {
-  class sjmp_rel implements CPUInstruction
+  public void execute(CPU cpu)
   {
-    int rel;
+    Coord coord = cpu.CoordRing.get();
+    cpu.ProgramCounter.inc(coord);
+  }
 
-    public void execute()
-    {
-      rel = ((Integer) null.getNextDatum()).intValue();
-      null.setPC(null.getPC() + rel);
-    }
-
-    public String toString()
-    {
-      return (new String("sjmp " + rel));
-    }
+  public String toString()
+  {
+    return (new String("sjmp " + rel));
   }
 }

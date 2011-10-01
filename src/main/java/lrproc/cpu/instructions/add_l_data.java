@@ -6,10 +6,6 @@ import lrproc.cpu.CPUInstruction;
 
 public class add_l_data implements CPUInstruction
 {
-  CPUInstruction[] instructions = new CPUInstruction[] {{
-    new
-  }};
-
   public byte[] execute(CPU cpu)
   {
     byte data = cpu.getNextDatumAtPC();

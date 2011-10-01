@@ -58,9 +58,36 @@ public class Coord
     _dirBitSet.set(2, 0);
   }
 
-  public void advance()
+  public void inc()
   {
+    offsetCoord(
+        _dirBitSet.get(0) ? 1 : 0,
+        _dirBitSet.get(1) ? 1 : 0,
+        _dirBitSet.get(2) ? 1 : 0);
+  }
 
+  public void inc(Coord coord)
+  {
+    offsetCoord(coord.X, coord.Y, coord.Z);
+  }
+
+  public void dec()
+  {
+    offsetCoord(
+        _dirBitSet.get(0) ? -1 : 0,
+        _dirBitSet.get(1) ? -1 : 0,
+        _dirBitSet.get(2) ? -1 : 0);
+  }
+
+  public void offsetCoord(int x, int y, int z)
+  {
+    X += x;
+    Y += y;
+    Z += z;
+
+    while(X < 0) X += Byte.MAX_VALUE;
+    while(Y < 0) Y += Byte.MAX_VALUE;
+    while(Z < 0) Z += Byte.MAX_VALUE;
   }
 
   public String toString()

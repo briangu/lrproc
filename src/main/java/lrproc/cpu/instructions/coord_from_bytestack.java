@@ -11,11 +11,11 @@ public class coord_from_bytestack implements CPUInstruction
   @Override
   public Object[] execute(CPU cpu)
   {
-    Byte x = cpu.popByte();
-    Byte y = cpu.popByte();
-    Byte z = cpu.popByte();
+    Byte x = cpu.ByteRing.pop();
+    Byte y = cpu.ByteRing.pop();
+    Byte z = cpu.ByteRing.pop();
     Coord coord = new Coord(x,y,z);
-    cpu.insertCoord(coord);
+    cpu.CoordRing.insert(coord);
 
     return cpu.isTracing() ? new Object[] { x, y, z} : null;
   }

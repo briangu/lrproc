@@ -258,7 +258,7 @@ public class GetOpt {
             if (optPosition != argLength-1) {
                // take rest of current arg as optArg
                optArg = thisArg.substring(optPosition+1);
-               optPosition = argLength-1; // force advance to next arg below
+               optPosition = argLength-1; // force inc to next arg below
             } else { // take next arg as optArg
                optIndex++;
                if (optIndex < argCount
@@ -275,7 +275,7 @@ public class GetOpt {
             }
          }
       }
-      // advance to next option argument,
+      // inc to next option argument,
       // which might be in thisArg or next arg
       optPosition++;
       if (optPosition >= argLength) {

@@ -6,19 +6,19 @@ import lrproc.cpu.CPUInstruction;
 import lrproc.cpu.Coord;
 
 
-public class coord_pop implements CPUInstruction
+public class coord_push implements CPUInstruction
 {
   @Override
   public Object[] execute(CPU cpu)
   {
-    Coord coord = cpu.CoordRing.pop();
-    cpu.CoordRing.insert(coord);
-    return new Object[] { coord };
+    Coord coord = cpu.CoordRing.get();
+    cpu.CoordRing.push();
+    return cpu.isTracing() ? new Object[] { coord } : null;
   }
 
   @Override
   public String toString(Object[] data)
   {
-    return String.format("coord_pop coord: %s", data[0]);
+    return String.format("coord_push coord: %s", data[0]);
   }
 }

@@ -1,41 +1,38 @@
 package lrproc.cpu.instructions;
 
 
+import lrproc.cpu.CPU;
 import lrproc.cpu.CPUInstruction;
 
 
-public class jz
+class jz implements CPUInstruction
 {
-  class jz implements CPUInstruction
+  public Object[] execute(CPU cpu)
   {
-    boolean jumped;
-    int rel;
-
-    public void execute()
+    int l;
+    Boolean jumped = false;
+    l = ((Integer) null.getLeft()).intValue();
+    if (l == 0)
     {
-      int l;
-      jumped = false;
-      l = ((Integer) null.getLeft()).intValue();
-      if (l == 0)
-      {
-        jumped = true;
-        rel = ((Integer) null.getNextDatum()).intValue();
-        null.setPC(null.getPC() + rel);
-      }
+      Boolean jumped = true;
+      Byte rel = cpu.ProgramCounter.getValueAt();
+      null.setPC(null.getPC() + rel);
     }
 
-    public String toString()
+    return cpu.isTracing() ? new Object[] { jumped, rel } : null;
+  }
+
+  public String toString()
+  {
+    String s;
+    if (jumped)
     {
-      String s;
-      if (jumped)
-      {
-        s = new String("jz " + rel);
-      }
-      else
-      {
-        s = new String("jz (!0)");
-      }
-      return (s);
+      s = new String("jz " + rel);
     }
+    else
+    {
+      s = new String("jz (!0)");
+    }
+    return (s);
   }
 }

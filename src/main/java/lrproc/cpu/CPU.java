@@ -3,22 +3,24 @@ package lrproc.cpu;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 import lrproc.cpu.instructions.NOP;
+import org.apache.log4j.Logger;
 
 
 public class CPU
 {
+  Logger log = Logger.getLogger(CPU.class);
+
+  final CPUInstruction[] _instructionSet;
+
   boolean _haltFlag;
   boolean _isTracing;
   List<TraceReport> _traceReports = new ArrayList<TraceReport>();
 
-  final CPUInstruction[] _instructionSet;
-
-  Memory _memory;
-  Coord _pc;
-  Ring<Coord> _coordRing;
-  Ring<Byte> _byteRing;
+  public Memory Memory;
+  public Coord ProgramCounter;
+  public Ring<Coord> CoordRing;
+  public Ring<Byte> ByteRing;
 
   private class TraceReport
   {
@@ -48,18 +50,10 @@ public class CPU
     setHalt(false);
     traceOff();
 
-    _pc = new Coord((byte)0, (byte)0, (byte)0);
-
-    _memory = memory;
-    _coordRing = new Ring(_pc);
-    _byteRing = new Ring(0);
-
-    _coordRing.insert(_pc);
-  }
-
-  public Memory getMemory()
-  {
-    return _memory;
+    ProgramCounter = new Coord((byte)0, (byte)0, (byte)0);
+    Memory = memory;
+    CoordRing = new Ring(ProgramCounter);
+    ByteRing = new Ring(0);
   }
 
   public CPUInstruction getInstruction(int op)
@@ -75,6 +69,7 @@ public class CPU
   public void traceOn()
   {
     _isTracing = true;
+    _traceReports.clear();
   }
 
   public void traceOff()
@@ -86,6 +81,19 @@ public class CPU
   public boolean isTracing()
   {
     return _isTracing;
+  }
+
+  public String generateTraceReport()
+  {
+    StringBuilder sb = new StringBuilder();
+
+    for (TraceReport report : _traceReports)
+    {
+      sb.append(report.toString());
+      sb.append("\n");
+    }
+
+    return sb.toString();
   }
 
   void setHalt(boolean value)
@@ -103,15 +111,20 @@ public class CPU
     setHalt(true);
   }
 
-  public void execute(int maxSteps)
+  public void step(int maxSteps)
   {
     for (int i = 0; !isHalted() && i < maxSteps; i++)
     {
-      byte op = _memory.get(_pc);
-      CPUInstruction instruction = getInstruction(op);
-      execute(instruction);
-      _pc.advance();
+      step();
     }
+  }
+
+  public void step()
+  {
+    byte op = Memory.get(ProgramCounter);
+    CPUInstruction instruction = getInstruction(op);
+    execute(instruction);
+    ProgramCounter.inc();
   }
 
   public void execute(CPUInstruction[] instructions)
@@ -127,7 +140,9 @@ public class CPU
     if (_isTracing)
     {
       Object[] data = instruction.execute(this);
-      _traceReports.add(new TraceReport(instruction, data));
+      TraceReport report = new TraceReport(instruction, data);
+      _traceReports.add(report);
+      log.trace(report);
     }
     else
     {

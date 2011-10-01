@@ -6,19 +6,19 @@ import lrproc.cpu.CPUInstruction;
 import lrproc.cpu.Coord;
 
 
-public class coord_pop implements CPUInstruction
+public class bytes_dup implements CPUInstruction
 {
   @Override
   public Object[] execute(CPU cpu)
   {
-    Coord coord = cpu.CoordRing.pop();
-    cpu.CoordRing.insert(coord);
-    return new Object[] { coord };
+    Byte b = cpu.ByteRing.get();
+    cpu.ByteRing.insert(b);
+    return new Object[] { b };
   }
 
   @Override
   public String toString(Object[] data)
   {
-    return String.format("coord_pop coord: %s", data[0]);
+    return String.format("bytes_dup b: %s", data[0]);
   }
 }

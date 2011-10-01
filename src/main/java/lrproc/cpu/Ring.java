@@ -44,6 +44,16 @@ public class Ring<T>
     return _ring.get(_ptr);
   }
 
+  public void set(T item)
+  {
+    _ring.set(_ptr, item);
+  }
+
+  public int getPtr()
+  {
+    return _ptr;
+  }
+
   public void shiftLeft()
   {
     if (_ptr == 0)
