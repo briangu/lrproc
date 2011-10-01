@@ -6,7 +6,7 @@ import lrproc.cpu.CPUInstruction;
 import lrproc.cpu.Coord;
 
 
-public class bytes_dec_from_coord_val implements CPUInstruction
+public class bytes_sub_from_coord_val implements CPUInstruction
 {
   @Override
   public Object[] execute(CPU cpu)
@@ -22,6 +22,6 @@ public class bytes_dec_from_coord_val implements CPUInstruction
   @Override
   public String toString(Object[] data)
   {
-    return String.format("bytes_add_to_coord_val coord: %s @coord: %s b2: %s b3: %s", data[0], data[1], data[2], data[3]);
+    return String.format("bytes_sub_from_coord_val coord: %s @coord: %s b2: %s b3: %s", data[0], data[1], data[2], data[3]);
   }
 }

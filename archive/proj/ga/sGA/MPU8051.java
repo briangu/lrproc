@@ -157,7 +157,7 @@ public class MPU8051 extends CPUEmulator
 		
 		public String toString()
 		{
-			return(new String("bytes_dec rr"));
+			return(new String("bytes_dec_val rr"));
 		}
 	}
 
@@ -374,7 +374,7 @@ public class MPU8051 extends CPUEmulator
 		
 		public String toString()
 		{
-			return(new String("bytes_dec"));
+			return(new String("bytes_dec_val"));
 		}
 	}
 
