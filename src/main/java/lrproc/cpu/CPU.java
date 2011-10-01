@@ -17,10 +17,8 @@ public class CPU
 
   Memory _memory;
   Coord _pc;
-  Ring _coordRing;
-  Ring _byteRing;
-
-  Stack<Byte> _byteStack;
+  Ring<Coord> _coordRing;
+  Ring<Byte> _byteRing;
 
   private class TraceReport
   {
@@ -50,8 +48,9 @@ public class CPU
     setHalt(false);
     traceOff();
 
-    _memory = memory;
     _pc = new Coord((byte)0, (byte)0, (byte)0);
+
+    _memory = memory;
     _coordRing = new Ring(_pc);
     _byteRing = new Ring(0);
 
