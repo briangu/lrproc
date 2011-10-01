@@ -62,4 +62,9 @@ public class Coord
   {
 
   }
+
+  public String toString()
+  {
+    return String.format("x:%s y:%s z:%s", X, Y, Z);
+  }
 }

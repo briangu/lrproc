@@ -17,9 +17,8 @@ public class CPU
 
   Memory _memory;
   Coord _pc;
-  Stack<Coord> _coordStack;
-  List<Coord> _coordRing;
-  int _coordPtr;
+  Ring _coordRing;
+  Ring _byteRing;
 
   Stack<Byte> _byteStack;
 
@@ -53,12 +52,10 @@ public class CPU
 
     _memory = memory;
     _pc = new Coord((byte)0, (byte)0, (byte)0);
-    _coordStack = new Stack<Coord>();
-    _coordRing = new ArrayList<Coord>();
-    _coordPtr = 0;
-    _byteStack = new Stack<Byte>();
+    _coordRing = new Ring(_pc);
+    _byteRing = new Ring(0);
 
-    insertCoord(_pc);
+    _coordRing.insert(_pc);
   }
 
   public Memory getMemory()
@@ -137,59 +134,5 @@ public class CPU
     {
       instruction.execute(this);
     }
-  }
-
-  public void insertCoord(Coord coord)
-  {
-    _coordRing.add(_coordPtr, coord);
-  }
-
-  public void removeCurrentCoord()
-  {
-    Coord coord = _coordRing.get(_coordPtr);
-    if (coord == _pc) return;
-    _coordRing.remove(_coordPtr);
-  }
-
-  public void pushCoord()
-  {
-    _coordStack.push(getCurrentCoord());
-  }
-
-  public Coord popCoord()
-  {
-    return _coordStack.empty() ? _pc : _coordStack.pop();
-  }
-
-  public Coord getCurrentCoord()
-  {
-    return _coordRing.get(_coordPtr);
-  }
-
-  public void shiftLeftCoordPtr()
-  {
-    if (_coordPtr == 0)
-    {
-      _coordPtr = _coordRing.size() - 1;
-    }
-    else
-    {
-      _coordPtr--;
-    }
-  }
-
-  public void shiftRightCoordPtr()
-  {
-    _coordPtr = (_coordPtr + 1) % _coordRing.size();
-  }
-
-  public void pushByte(byte b)
-  {
-    _byteStack.push(b);
-  }
-
-  public byte popByte()
-  {
-    return _byteStack.empty() ? 0 : _byteStack.pop();
   }
 }

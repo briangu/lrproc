@@ -6,7 +6,7 @@ import lrproc.cpu.CPUInstruction;
 import lrproc.cpu.Coord;
 
 
-public class mk_coord implements CPUInstruction
+public class coord_from_bytestack implements CPUInstruction
 {
   @Override
   public Object[] execute(CPU cpu)
@@ -23,6 +23,6 @@ public class mk_coord implements CPUInstruction
   @Override
   public String toString(Object[] data)
   {
-    return String.format("mk_coord x:%s y:%s z:%s", data[0], data[1], data[2]);
+    return String.format("coord_from_bytestack x:%s y:%s z:%s", data[0], data[1], data[2]);
   }
 }
