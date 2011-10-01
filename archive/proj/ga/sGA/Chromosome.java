@@ -1,11 +1,11 @@
 public class Chromosome {
 
    protected static int     chromosomeLength = -1;        // will be set by
-   protected static boolean knownSolutionFitness = false; // MyChromosome
+   protected static boolean knownSolutionFitness = false; // lrproc.examples.MyChromosome
    protected static double  solutionFitness  = -1;        // if known
    protected        double  fitness          = -1;
-   protected        double  rfitness         = -1; // relative fitness
-   protected        double  cfitness         = -1; // cumulative fitness
+   protected        double  rfitness         = -1; // relative _fitness
+   protected        double  cfitness         = -1; // cumulative _fitness
 
    protected        int[] gene           = null;
    protected static int[] geneLowerBound = null;
@@ -37,7 +37,7 @@ public class Chromosome {
 
    public static final int getChromosomeLength() {
       if (chromosomeLength <= 0) {
-         System.err.println("Chromosome: length has not yet been set.");
+         System.err.println("lrproc.sga.Chromosome: length has not yet been set.");
          System.exit(1);
       }
       return chromosomeLength;
@@ -46,7 +46,7 @@ public class Chromosome {
    public final double getFitness() {
       if (fitness < 0) fitness = evalChromosome();
       if (fitness < 0) {
-         System.err.println("getFitness: negative fitness so quit");
+         System.err.println("getFitness: negative _fitness so quit");
          System.exit(1);
       }
       return fitness;
@@ -117,7 +117,7 @@ public class Chromosome {
 
    public String toGenotype() {
       String genotype = "";
-//      for (int i = 0; i < chromosomeLength; i++) {
+//      for (int i = 0; i < _chromosomeLength; i++) {
 //         genotype += " gene["+i+"]="+gene[i];
 //      }
       return genotype;
@@ -188,8 +188,8 @@ public class Chromosome {
 			fitness4 = Math.sqrt(y*y - x*x) / y; 
 		}
 
-	//	fitness = fitness1*0.5 + fitness2*0.5;
-	//	fitness = fitness1*0.4 + fitness2*0.3 + fitness3*0.3;
+	//	_fitness = fitness1*0.5 + fitness2*0.5;
+	//	_fitness = fitness1*0.4 + fitness2*0.3 + fitness3*0.3;
 		fitness = fitness1*0.25 + fitness2*0.25 + fitness3*0.25 + fitness4*0.25;
 
 		if (fitness < 0)

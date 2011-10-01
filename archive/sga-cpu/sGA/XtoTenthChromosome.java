@@ -7,14 +7,14 @@
 public class XtoTenthChromosome extends BitChromosome  {// this user-defined class
                                                 // implements evalChromosome,
    protected XtoTenthChromosome() {            // toPhenotype;
-      super();                                // defines chromosomeLength,
-   }                                         // knownSolutionFitness, and
-                                            // solutionFitness
+      super();                                // defines _chromosomeLength,
+   }                                         // _knownSolutionFitness, and
+                                            // _solutionFitness
    private static double divisor;
 
    static {
       chromosomeLength = 32;
-      System.out.println("XtoTenthChromosome: chromosome length is "
+      System.out.println("lrproc.examples.XtoTenthChromosome: chromosome length is "
          + chromosomeLength);
       knownSolutionFitness = true;
       solutionFitness = 1.0;

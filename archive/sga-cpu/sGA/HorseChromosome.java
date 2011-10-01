@@ -4,9 +4,9 @@ public class HorseChromosome extends IntegerChromosome {// this user-defined cla
 	int myLastAcc;
                                                // implements evalChromosome,
    protected HorseChromosome() {              // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 128;
       System.out.println("HorseChromosome: chromosome length is "

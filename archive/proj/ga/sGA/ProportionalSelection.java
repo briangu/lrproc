@@ -11,34 +11,34 @@ public class ProportionalSelection implements Selection { // also called the
 
       double p, sum = 0;
 
-      // find total fitness of the population
+      // find total _fitness of the population
       for (int mem = 0; mem < populationSize; mem++) {
          sum += population[mem].getFitness();
       }
 
       if (sum == 0) throw new FitnessSumZeroException();
 
-      // calculate relative fitness
+      // calculate relative _fitness
       for (int mem = 0; mem < populationSize; mem++) {
          population[mem].rfitnessSet(population[mem].getFitness()/sum);
       }
 
       population[0].cfitnessSet(population[0].rfitnessGet());
       if (Debug.flag) {
-         System.out.println("mem=0, cfitness="+population[0].cfitnessGet());
+         System.out.println("mem=0, _cfitness="+population[0].cfitnessGet());
       }
 
-      // calculate cumulative fitness
+      // calculate cumulative _fitness
       for (int mem = 1; mem < populationSize; mem++) {
          population[mem].cfitnessSet(population[mem-1].cfitnessGet() +
             population[mem].rfitnessGet());
          if (Debug.flag) {
-            System.out.println("mem=" + mem + ", cfitness=" +
+            System.out.println("mem=" + mem + ", _cfitness=" +
                population[mem].cfitnessGet());
          }
       }
 
-      // finally select survivors using cumulative fitness.
+      // finally select survivors using cumulative _fitness.
       for (int i = 0; i < populationSize; i++) {
          p = MyRandom.dblRandom();
          if (p < population[0].cfitnessGet()) {

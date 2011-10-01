@@ -1,5 +1,5 @@
 /*
- * Pick a point at random between 1 and chromosomeLength-1 (inclusive),
+ * Pick a point at random between 1 and _chromosomeLength-1 (inclusive),
  * then exchange all genes at positions 0 to point-1 (inclusive) between
  * the two chromosomes being crossed over.
  */
@@ -20,7 +20,7 @@ public class OnePointCrossover implements Crossover {
             two.setGene(i, temp);
          }
          if (Debug.flag) {
-            System.out.println("OnePointCrossover: just crossed at " + point);
+            System.out.println("lrproc.sga.crossover.OnePointCrossover: just crossed at " + point);
          }
       }
    }

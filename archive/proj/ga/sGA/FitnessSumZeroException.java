@@ -1,6 +1,6 @@
 public class FitnessSumZeroException extends SelectionException {
    FitnessSumZeroException() {
-      super("ProportionalSelection: population fitness sums to zero");
+      super("lrproc.sga.exceptions.ProportionalSelection: population _fitness sums to zero");
    }
 }
 

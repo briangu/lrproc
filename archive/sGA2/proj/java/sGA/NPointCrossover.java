@@ -1,6 +1,6 @@
 /*
- * Pick N points (p0,p1,...) at random between 1 and chromosomeLength-1
- * (inclusive) then sort them.  If N is odd, add the point chromosomeLength
+ * Pick N points (p0,p1,...) at random between 1 and _chromosomeLength-1
+ * (inclusive) then sort them.  If N is odd, add the point _chromosomeLength
  * to the N already picked.  Then exchange between the two chromosomes being
  * crossed over the genes in the ranges [p0,p1), [p2,p3), ....
  */

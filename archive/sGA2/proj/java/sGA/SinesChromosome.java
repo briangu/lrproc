@@ -6,12 +6,12 @@
 public class SinesChromosome extends DoubleChromosome {// this user-defined class
                                                // implements evalChromosome,
    protected SinesChromosome() {              // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 3;
-      System.out.println("SinesChromosome: chromosome length is "
+      System.out.println("lrproc.examples.SinesChromosome: chromosome length is "
          + chromosomeLength);
       knownSolutionFitness = false;
       solutionFitness = -1;
@@ -25,7 +25,7 @@ public class SinesChromosome extends DoubleChromosome {// this user-defined clas
                             + gene[1] * Math.sin(20*Math.PI*gene[1])
                             + gene[2];
       if (fitness <= 0) {
-         System.err.println("fitness of " + fitness + " at x1=" + gene[0] +
+         System.err.println("_fitness of " + fitness + " at x1=" + gene[0] +
          " x2=" + gene[1] + " x3=" + gene[2] + " is <= 0");
          System.exit(1);
       }

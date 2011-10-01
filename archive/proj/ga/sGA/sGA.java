@@ -81,9 +81,9 @@ public class sGA {
           "  doElitism           = " + doElitism            + "\n" +
           "  printPerGens        = " + printPerGens         + "\n" +
           "  maxGenerations      = " + maxGenerations       + "\n" +
-          "  Debug.flag          = " + Debug.flag           + "\n");
+          "  lrproc.common.Debug.flag          = " + Debug.flag           + "\n");
 
-      // force loading class Chromosome and setting static variables
+      // force loading class lrproc.sga.Chromosome and setting static variables
 
       sGA theGA = new sGA();
       theGA.mainLoop();
@@ -97,7 +97,7 @@ public class sGA {
       System.out.println(name +
         ":\n   " + c.toGenotype() +
          "\n   " + c.toPhenotype() +
-         "\n    fitness= " + c.getFitness());
+         "\n    _fitness= " + c.getFitness());
    }
 
    private final Chromosome theBest = new Chromosome();
@@ -115,7 +115,7 @@ public class sGA {
    private void mainLoop() {
       System.out.println("GA: mainLoop");
       if (Chromosome.isSolutionFitnessKnown()) {
-         System.out.println("Known solution fitness is " +
+         System.out.println("Known solution _fitness is " +
             Chromosome.getSolutionFitness());
       }
       initialize();
@@ -269,12 +269,12 @@ public class sGA {
    /* Report function: Reports progress of the simulation.
    /***************************************************************/
    private void report(String title) {
-      double best_val;            // best population fitness
-      double avg;                 // avg population fitness
-      double stddev;              // std. deviation of population fitness
+      double best_val;            // best population _fitness
+      double avg;                 // avg population _fitness
+      double stddev;              // std. deviation of population _fitness
       double sum_square;          // sum of square for std. calc
       double square_sum;          // square of sum for std. calc
-      double sum;                 // total population fitness
+      double sum;                 // total population _fitness
       double fitness;
 
       sum = 0.0;
@@ -307,14 +307,14 @@ public class sGA {
 
    /****************************************************************/
    /* Elitist function: The best member of the previous generation */
-   /* is stored in theBest Chromosome.  If the best member of      */
+   /* is stored in theBest lrproc.sga.Chromosome.  If the best member of      */
    /* the current generation is worse then the best member of the  */
    /* previous generation, the latter one would replace the worst  */
    /* member of the current population                             */
    /****************************************************************/
    private void elitism() {
 
-      double best, worst;          // best and worst fitness values
+      double best, worst;          // best and worst _fitness values
       int bestMember, worstMember; // indexes of the best and worst member
       int start; // index used to start the loop
 

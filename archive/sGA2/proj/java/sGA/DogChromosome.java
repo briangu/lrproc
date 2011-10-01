@@ -6,12 +6,12 @@
 public class DogChromosome extends IntegerChromosome {// this user-defined class
                                                // implements evalChromosome,
    protected DogChromosome() {              // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 5;
-      System.out.println("DogChromosome: chromosome length is "
+      System.out.println("lrproc.examples.DogChromosome: chromosome length is "
          + chromosomeLength);
       knownSolutionFitness = true;
       solutionFitness = 23145;
@@ -100,7 +100,7 @@ public class DogChromosome extends IntegerChromosome {// this user-defined class
 
 	s = new String();
 
-	s = s + "fitness = " + gene[1] + opToPhenotype(gene[0]) + gene[2] + opToPhenotype(gene[3]) + gene[4];
+	s = s + "_fitness = " + gene[1] + opToPhenotype(gene[0]) + gene[2] + opToPhenotype(gene[3]) + gene[4];
 
       return s;
    }

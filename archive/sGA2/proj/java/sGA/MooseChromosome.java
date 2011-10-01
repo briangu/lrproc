@@ -4,9 +4,9 @@ public class MooseChromosome extends ByteChromosome {// this user-defined class
 
                                                // implements evalChromosome,
    protected MooseChromosome() {              // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 32;
       System.out.println("MooseChromosome: chromosome length is " + chromosomeLength);

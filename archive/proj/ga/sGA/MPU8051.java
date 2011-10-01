@@ -57,7 +57,7 @@ public class MPU8051 extends CPUEmulator
 	//
 	//
 
-	class CPUInstruction_halt extends CPUInstruction
+	class CPUInstruction_halt implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -70,7 +70,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_cobj extends CPUInstruction
+	class CPUInstruction_cobj implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -83,7 +83,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_inc_lr extends CPUInstruction
+	class CPUInstruction_inc_lr implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -96,7 +96,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_dec_lr extends CPUInstruction
+	class CPUInstruction_dec_lr implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -109,7 +109,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_lr_r extends CPUInstruction
+	class CPUInstruction_mov_lr_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -122,7 +122,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_lr_l extends CPUInstruction
+	class CPUInstruction_mov_lr_l implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -135,7 +135,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_inc_rr extends CPUInstruction
+	class CPUInstruction_inc_rr implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -148,7 +148,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_dec_rr extends CPUInstruction
+	class CPUInstruction_dec_rr implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -161,7 +161,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_rr_r extends CPUInstruction
+	class CPUInstruction_mov_rr_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -174,7 +174,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_rr_l extends CPUInstruction
+	class CPUInstruction_mov_rr_l implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -187,7 +187,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_add_l_data extends CPUInstruction
+	class CPUInstruction_add_l_data implements CPUInstruction
 	{
 		int	data;
 
@@ -203,7 +203,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_sub_l_data extends CPUInstruction
+	class CPUInstruction_sub_l_data implements CPUInstruction
 	{
 		int	data;
 
@@ -219,7 +219,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mul_l_data extends CPUInstruction
+	class CPUInstruction_mul_l_data implements CPUInstruction
 	{
 		int	data;
 
@@ -235,7 +235,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_div_l_data extends CPUInstruction
+	class CPUInstruction_div_l_data implements CPUInstruction
 	{
 		int	data;
 
@@ -259,7 +259,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_add_l_r extends CPUInstruction
+	class CPUInstruction_add_l_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -272,7 +272,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_sub_l_r extends CPUInstruction
+	class CPUInstruction_sub_l_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -285,7 +285,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mul_l_r extends CPUInstruction
+	class CPUInstruction_mul_l_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -298,7 +298,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_div_l_r extends CPUInstruction
+	class CPUInstruction_div_l_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -320,7 +320,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_sjmp_rel extends CPUInstruction
+	class CPUInstruction_sjmp_rel implements CPUInstruction
 	{
 		int	rel;
 
@@ -336,7 +336,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_ljmp_addr extends CPUInstruction
+	class CPUInstruction_ljmp_addr implements CPUInstruction
 	{
 		int	addr;
 
@@ -352,7 +352,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_inc extends CPUInstruction
+	class CPUInstruction_inc implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -365,7 +365,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_dec extends CPUInstruction
+	class CPUInstruction_dec implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -378,7 +378,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_jz extends CPUInstruction
+	class CPUInstruction_jz implements CPUInstruction
 	{
 		boolean	jumped;
 		int	rel;
@@ -409,7 +409,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_jnz extends CPUInstruction
+	class CPUInstruction_jnz implements CPUInstruction
 	{
 		boolean	jumped;
 		int	rel;
@@ -440,7 +440,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_djnz_l extends CPUInstruction
+	class CPUInstruction_djnz_l implements CPUInstruction
 	{
 		boolean	jumped;
 		int	rel;
@@ -474,7 +474,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_l_r extends CPUInstruction
+	class CPUInstruction_mov_l_r implements CPUInstruction
 	{
 		public void execute()
 		{
@@ -487,7 +487,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_r_l extends CPUInstruction
+	class CPUInstruction_mov_r_l implements CPUInstruction
 	{
 		public void execute()
 		{

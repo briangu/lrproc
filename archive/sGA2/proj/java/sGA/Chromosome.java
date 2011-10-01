@@ -1,19 +1,19 @@
 abstract public class Chromosome { // designed for genes that are class Number
 
    protected static int     chromosomeLength = -1;        // will be set by
-   protected static boolean knownSolutionFitness = false; // MyChromosome
+   protected static boolean knownSolutionFitness = false; // lrproc.examples.MyChromosome
    protected static double  solutionFitness  = -1;        // if known
    protected        double  fitness          = -1;
-   protected        double  rfitness         = -1; // relative fitness
-   protected        double  cfitness         = -1; // cumulative fitness
+   protected        double  rfitness         = -1; // relative _fitness
+   protected        double  cfitness         = -1; // cumulative _fitness
 
    protected Chromosome() {} // construction only by subclasses
 
-   protected abstract double evalChromosome(); // supplied by MyChromosome
+   protected abstract double evalChromosome(); // supplied by lrproc.examples.MyChromosome
 
    public static final int getChromosomeLength() {
       if (chromosomeLength <= 0) {
-         System.err.println("Chromosome: length has not yet been set.");
+         System.err.println("lrproc.sga.Chromosome: length has not yet been set.");
          System.exit(1);
       }
       return chromosomeLength;
@@ -22,7 +22,7 @@ abstract public class Chromosome { // designed for genes that are class Number
    public final double getFitness() {
       if (fitness < 0) fitness = evalChromosome();
       if (fitness < 0) {
-         System.err.println("getFitness: negative fitness so quit");
+         System.err.println("getFitness: negative _fitness so quit");
          System.exit(1);
       }
       return fitness;

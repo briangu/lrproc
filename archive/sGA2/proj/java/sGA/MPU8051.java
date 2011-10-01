@@ -165,7 +165,7 @@ public class MPU8051 extends CPUEmulator
 	//
 	//
 
-	class CPUInstruction_add_acc_data extends CPUInstruction
+	class CPUInstruction_add_acc_data implements CPUInstruction
 	{
 		byte	data;
 
@@ -185,7 +185,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_sub_acc_data extends CPUInstruction
+	class CPUInstruction_sub_acc_data implements CPUInstruction
 	{
 		byte	data;
 
@@ -205,7 +205,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mult_acc_data extends CPUInstruction
+	class CPUInstruction_mult_acc_data implements CPUInstruction
 	{
 		byte	data;
 
@@ -225,7 +225,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_div_acc_data extends CPUInstruction
+	class CPUInstruction_div_acc_data implements CPUInstruction
 	{
 		byte	data;
 
@@ -253,7 +253,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_sjmp_rel extends CPUInstruction
+	class CPUInstruction_sjmp_rel implements CPUInstruction
 	{
 		byte	rel;
 
@@ -273,7 +273,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_ljmp_addr extends CPUInstruction
+	class CPUInstruction_ljmp_addr implements CPUInstruction
 	{
 		byte	addr;
 
@@ -293,7 +293,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_jmp_a_dptr extends CPUInstruction
+	class CPUInstruction_jmp_a_dptr implements CPUInstruction
 	{
 		byte	addr;
 
@@ -313,7 +313,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_inc extends CPUInstruction
+	class CPUInstruction_inc implements CPUInstruction
 	{
 		public
 		void
@@ -330,7 +330,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_dec extends CPUInstruction
+	class CPUInstruction_dec implements CPUInstruction
 	{
 		public
 		void
@@ -347,7 +347,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_jz extends CPUInstruction
+	class CPUInstruction_jz implements CPUInstruction
 	{
 		boolean	jumped;
 		byte	rel;
@@ -382,7 +382,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_jnz extends CPUInstruction
+	class CPUInstruction_jnz implements CPUInstruction
 	{
 		boolean	jumped;
 		byte	rel;
@@ -417,7 +417,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_djnz_r0 extends CPUInstruction
+	class CPUInstruction_djnz_r0 implements CPUInstruction
 	{
 		boolean	jumped;
 		byte	rel;
@@ -453,7 +453,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_r0_data extends CPUInstruction
+	class CPUInstruction_mov_r0_data implements CPUInstruction
 	{
 		byte	data;
 
@@ -473,7 +473,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_acc_r0 extends CPUInstruction
+	class CPUInstruction_mov_acc_r0 implements CPUInstruction
 	{
 		public
 		void
@@ -490,7 +490,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mov_r0_acc extends CPUInstruction
+	class CPUInstruction_mov_r0_acc implements CPUInstruction
 	{
 		public
 		void
@@ -507,7 +507,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_add_acc_r0 extends CPUInstruction
+	class CPUInstruction_add_acc_r0 implements CPUInstruction
 	{
 		public
 		void
@@ -524,7 +524,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_sub_acc_r0 extends CPUInstruction
+	class CPUInstruction_sub_acc_r0 implements CPUInstruction
 	{
 		public
 		void
@@ -541,7 +541,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_mult_acc_r0 extends CPUInstruction
+	class CPUInstruction_mult_acc_r0 implements CPUInstruction
 	{
 		public
 		void
@@ -558,7 +558,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_div_acc_r0 extends CPUInstruction
+	class CPUInstruction_div_acc_r0 implements CPUInstruction
 	{
 		public
 		void
@@ -582,7 +582,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_poke extends CPUInstruction
+	class CPUInstruction_poke implements CPUInstruction
 	{
 		public
 		void
@@ -599,7 +599,7 @@ public class MPU8051 extends CPUEmulator
 		}
 	}
 
-	class CPUInstruction_halt extends CPUInstruction
+	class CPUInstruction_halt implements CPUInstruction
 	{
 		public
 		void

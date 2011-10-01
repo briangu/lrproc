@@ -5,12 +5,12 @@
 public class BitCountChromosome extends BitChromosome {// this user-defined class
                                                // implements evalChromosome,
    protected BitCountChromosome() {           // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 32;
-      System.out.println("BitCountChromosome: chromosome length is "
+      System.out.println("lrproc.examples.BitCountChromosome: chromosome length is "
          + chromosomeLength);
       knownSolutionFitness = true;
       solutionFitness = chromosomeLength;

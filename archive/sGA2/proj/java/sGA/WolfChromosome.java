@@ -1,15 +1,15 @@
-public class WolfChromosome extends ByteChromosome {// this user-defined class
+public class cpuBrain extends ByteChromosome {// this user-defined class
 
 	static private MPU8051 cpu;
 
                                                // implements evalChromosome,
    protected WolfChromosome() {              // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 16;
-      System.out.println("WolfChromosome: chromosome length is " + chromosomeLength);
+      System.out.println("lrproc.examples.cpuBrain: chromosome length is " + chromosomeLength);
       knownSolutionFitness = true;
       solutionFitness = 1.0;
 

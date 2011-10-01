@@ -1,5 +1,5 @@
 /*
- * sGA.java       version 1.00      8 August 1996
+ * lrproc.sga.sGA.java       version 1.00      8 August 1996
  *   A simple genetic algorithm where the fitness function takes
  * non-negative values only: generate initial population, then for each
  * generation select a new population, apply crossover and mutation, until

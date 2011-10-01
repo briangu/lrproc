@@ -1,11 +1,11 @@
 final public class MyChromosome extends
 
-// Put your Chromosome class name here (comment out the others):
+// Put your lrproc.sga.Chromosome class name here (comment out the others):
 
-   // BitCountChromosome
-   // XtoTenthChromosome
-   //   SinesChromosome
-   // ByteCountChromosome
+   // lrproc.examples.BitCountChromosome
+   // lrproc.examples.XtoTenthChromosome
+   //   lrproc.examples.SinesChromosome
+   // lrproc.examples.ByteCountChromosome
 	HorseChromosome
 
    {public MyChromosome() {super();}

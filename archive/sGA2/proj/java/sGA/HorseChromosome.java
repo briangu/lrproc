@@ -4,9 +4,9 @@ public class HorseChromosome extends ByteChromosome {// this user-defined class
 
                                                // implements evalChromosome,
    protected HorseChromosome() {              // toPhenotype;
-      super();                               // defines chromosomeLength,
-   }                                        // knownSolutionFitness, and
-                                           // solutionFitness
+      super();                               // defines _chromosomeLength,
+   }                                        // _knownSolutionFitness, and
+                                           // _solutionFitness
    static {
       chromosomeLength = 17;
       System.out.println("HorseChromosome: chromosome length is " + chromosomeLength);

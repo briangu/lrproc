@@ -1,20 +1,20 @@
 // OVERVIEW:
 //
-// GetOpt provides a general means for a Java program to parse command
+// lrproc.examples.GetOpt provides a general means for a Java program to parse command
 // line arguments in accordance with the standard Unix conventions;
 // it is analogous to, and based on, getopt(3) for C programs.
 // (The following documentation is based on the man page for getopt(3).)
 
 // DESCRIPTION:
 //
-// GetOpt is a Java class that provides one static method, getopt,
+// lrproc.examples.GetOpt is a Java class that provides one static method, getopt,
 // and some variables that control behavior of or return additional
 // information from getopt.
 //
-// GetOpt interprets command arguments in accordance with the standard
+// lrproc.examples.GetOpt interprets command arguments in accordance with the standard
 // Unix conventions: option arguments of a command are introduced by "-"
 // followed by a key character, and a non-option argument terminates
-// the processing of options.  GetOpt's option interpretation is controlled
+// the processing of options.  lrproc.examples.GetOpt's option interpretation is controlled
 // by its parameter optString, which specifies what characters designate
 // legal options and which of them require associated values.
 //
@@ -55,7 +55,7 @@
 
 // NOTES:
 //
-// The following notes describe GetOpt's behavior in a few interesting
+// The following notes describe lrproc.examples.GetOpt's behavior in a few interesting
 // or special cases; these behaviors are consistent with getopt(3)'s
 // behaviors.
 // -- A '-' by itself is treated as a non-option argument.
@@ -70,9 +70,9 @@
 //    Sun treats "---" (or anything starting with "--") the same as "--"
 //    DEC treats "---" as two separate "-" options
 //    (so "-" should appear in option string).
-//    Java GetOpt follows the DEC convention.
+//    Java lrproc.examples.GetOpt follows the DEC convention.
 // -- An option `letter' can be a letter, number, or most special character.
-//    Like getopt(3), GetOpt disallows a colon as an option letter.
+//    Like getopt(3), lrproc.examples.GetOpt disallows a colon as an option letter.
 
 public class GetOpt {
 
@@ -219,7 +219,7 @@ public class GetOpt {
    }
 
    private static void writeError(String msg, char ch) {
-      System.err.println("GetOpt: " + msg + " -- " + ch);
+      System.err.println("lrproc.examples.GetOpt: " + msg + " -- " + ch);
    }
 
    public static final int optEOF = -1;
@@ -313,7 +313,7 @@ public class GetOpt {
          System.exit(0);
       }
       System.out.println("These are all the command line arguments " +
-         "before processing with GetOpt:");
+         "before processing with lrproc.examples.GetOpt:");
       for (int i=0; i<args.length; i++) System.out.print(" " + args[i]);
       System.out.println();
       System.out.println("-U " + usagePrint);
